@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/svg+xml" href="~/favicon.svg" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" asp-page="/Index">
+                <img src="~/images/honeydoo-mark.svg" width="42" height="42" alt="" />
+                <span>HoneyDoo</span>
+            </a>
+            <nav aria-label="Main navigation">
+                <a asp-page="/Index" aria-current="@(ViewContext.RouteData.Values["page"] as string == "/Index" ? "page" : null)">Home</a>
+                <a asp-page="/About" aria-current="@(ViewContext.RouteData.Values["page"] as string == "/About" ? "page" : null)">About</a>
+            </nav>
+            <span class="preview-label">Development Preview</span>
+        </div>
+    </header>
+    <main class="container" id="content" tabindex="-1">
+        @RenderBody()
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-credit">Developed by @TeamInfo.Name</p>
+            <ul class="footer-members" aria-label="Team members">
+                @foreach (var member in TeamInfo.Members)
+                {
+                    <li>@member</li>
+                }
+            </ul>
+            <p>@TeamInfo.Course</p>
+            <p>Initial development build</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+@page
+@model HoneyDoo.Web.Pages.IndexModel
+@{
+    ViewData["Title"] = "HoneyDoo | Household Task Management";
+}
+
+<div class="hero">
+    <div>
+        <h1>HoneyDoo</h1>
+        <p class="tagline">One home. One list. Less stress.</p>
+        <p class="intro">A simpler way for households to organize responsibilities, share tasks, and keep track of what needs to get done.</p>
+        <aside class="build-notice" aria-label="Development status">Initial development build. Household accounts and task management are planned for future iterations.</aside>
+        <div class="actions">
+            <a class="primary-action" href="#planned">See what's planned</a>
+            <a class="secondary-action" asp-page="/About" asp-fragment="team">Meet the team</a>
+        </div>
+    </div>
+
+    <section class="task-preview" aria-labelledby="preview-title">
+        <h2 id="preview-title">Illustrative preview - sample tasks only</h2>
+        <ul class="task-list">
+            <li><span>Water the porch plants</span><span class="status pending">Pending</span></li>
+            <li><span>Sort the recycling</span><span class="status in-progress">In progress</span></li>
+            <li><span>Put away clean towels</span><span class="status complete">Complete</span></li>
+        </ul>
+    </section>
+</div>
+
+<section class="planned" id="planned" aria-labelledby="planned-title">
+    <h2 id="planned-title">Planned features</h2>
+    <div class="feature-grid">
+        <article>
+            <h3>Shared households</h3>
+            <p>Organize responsibilities in one household space.</p>
+        </article>
+        <article>
+            <h3>Task assignment</h3>
+            <p>Assign tasks and due dates to household members.</p>
+        </article>
+        <article>
+            <h3>Progress tracking</h3>
+            <p>See what is pending, in progress, or complete.</p>
+        </article>
+    </div>
+</section>

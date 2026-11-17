@@ -1,0 +1,147 @@
+TASK: Create the HoneyDoo starter application
+
+Implement the project in the current HoneyDoo workspace. Do not stop at an implementation plan. This is a small, runnable first increment, not the complete household-management application.
+
+CONTEXT AND SCOPE
+HoneyDoo is a responsive household task-management web application being developed by Fourward Solutions for Purdue Global IT488, Group 3. The planned stack is C#, ASP.NET Core Razor Pages, and SQLite. This task implements the branded welcome screen, team information, project structure, and setup documentation only.
+
+The instructor has confirmed that Unit 1 does not require a functioning application, completed database, virtual machine, or shared hosting. This starter is useful preparation beyond that minimum; do not describe unfinished features as implemented.
+
+FIRST: INSPECT AND PROTECT THE WORKSPACE
+- Inspect existing files, repository instructions, git status, and available .NET SDKs before making changes.
+- Work only in the intended HoneyDoo workspace. Do not modify another project or overwrite teammates' work.
+- Target .NET 10 LTS (net10.0), using compatible stable dependencies. Do not silently substitute another framework or an unsupported .NET version.
+- If required tooling is unavailable, complete the files that can be created reliably, document the blocker, and clearly distinguish untested work. Do not claim a successful build or invent test results.
+- Do not create a remote repository, push, merge, deploy publicly, purchase hosting, or choose a software license. Leave existing repository policies intact.
+
+1. PROJECT FOUNDATION
+Create a normal ASP.NET Core Razor Pages solution, not a standalone HTML mockup.
+
+Use this structure, adapting only where an existing repository requires it:
+
+HoneyDoo.sln
+src/HoneyDoo.Web/
+    Pages/
+        Index.cshtml and Index.cshtml.cs
+        About.cshtml and About.cshtml.cs
+        Shared/_Layout.cshtml
+    Models/
+    Services/
+    Data/
+    wwwroot/css/site.css
+    wwwroot/images/honeydoo-mark.svg
+    wwwroot/favicon.svg
+    Program.cs
+    appsettings.json
+    Properties/launchSettings.json
+    HoneyDoo.Web.csproj
+tests/HoneyDoo.Web.Tests/
+docs/architecture.md
+docs/unit1-environment-checklist.md
+README.md
+.gitignore
+
+Use a single web project with clearly named folders for presentation, future business logic, and future data access. Add small explanatory README files to reserved folders when useful; do not invent unnecessary classes, interfaces, or services merely to fill them.
+
+SQLite remains the planned database. Do NOT create household/user/task tables, authentication, Entity Framework migrations, or a fake database-connected indicator in this task. The welcome screen must run without a database. Explicitly document data access as future work for team review.
+
+Do not introduce React, Angular, Blazor, MAUI, microservices, Docker, a separate API, or a required Node/npm build process. Keep dependencies minimal and the code understandable to students learning ASP.NET Core.
+
+2. BRAND AND VISUAL DESIGN
+Product name: HoneyDoo
+Tagline: One home. One list. Less stress.
+Development team: Fourward Solutions
+
+Design a clean, welcoming, mobile-first interface that feels like an intentional product rather than the unmodified ASP.NET template.
+
+Use warm off-white backgrounds, dark green primary elements, restrained honey-gold accents, readable dark text, generous spacing, and softly rounded panels. Use a system-font stack and local assets; no remote font or icon dependencies.
+
+Create an original, simple SVG brand mark combining a house outline and checkmark, optionally framed by a subtle honeycomb shape. Keep it legible at small sizes. Store it as honeydoo-mark.svg and provide a matching SVG favicon. Display the word HoneyDoo as actual text beside the mark. Do not copy existing product or university logos, or imply university endorsement.
+
+3. WELCOME SCREEN AT /
+Set the page title to "HoneyDoo | Household Task Management".
+
+Header:
+- HoneyDoo mark and wordmark at the left.
+- Working navigation links: Home and About.
+- A compact "Development Preview" label.
+
+Main content:
+- A prominent HoneyDoo heading.
+- Tagline: "One home. One list. Less stress."
+- Description: "A simpler way for households to organize responsibilities, share tasks, and keep track of what needs to get done."
+- An accessible notice: "Initial development build. Household accounts and task management are planned for future iterations."
+- A "See what's planned" link that goes to the planned-features section on this page.
+- A "Meet the team" link that goes to /About#team.
+
+Include a small static household-task preview with three fictional sample tasks and varied status labels. Clearly label the whole preview "Illustrative preview — sample tasks only" and keep it non-interactive. Do not suggest that these tasks are saved or retrieved from a database.
+
+Add a "Planned features" section with three concise cards:
+- Shared households: Organize responsibilities in one household space.
+- Task assignment: Assign tasks and due dates to household members.
+- Progress tracking: See what is pending, in progress, or complete.
+
+Mark these as planned, not operational. Do not add fake login/register controls, dead-end buttons, fabricated user statistics, or fabricated testimonials.
+
+4. DEVELOPMENT TEAM FOOTER
+Use the shared Razor layout so this footer appears on both pages:
+
+Developed by Fourward Solutions
+Cris Brown-Renteria | Jacob Lasley | Christopher Lawrence | Matt Newport
+Purdue Global • IT488 Software Product Development Using Agile • Group 3
+Initial development build
+
+Keep names readable on phones; wrap them or use a compact grid. Do not add email addresses, phone numbers, unconfirmed job titles, or ownership/license claims.
+
+Use a normal-flow footer with a full-height flex layout so it rests near the bottom of short pages without overlaying content. Do not use a fixed-position footer.
+
+5. ABOUT PAGE AND ACCESSIBILITY
+Create /About with a brief explanation of the project, its current starter scope, the planned stack, and a section with id="team" listing the four members.
+
+Store repeated team information in one simple shared model/configuration source, or a shared partial, so names do not drift between pages. Avoid unnecessary abstraction.
+
+Use semantic HTML, one main heading per page, a skip-to-content link, visible keyboard-focus styles, accessible link names, meaningful alt text where appropriate, and decorative icons hidden from screen readers. Ensure readable contrast and comfortable touch targets.
+
+Check layouts around 375px, 768px, and 1440px wide. Navigation and the team footer must remain readable without horizontal scrolling. Core content and navigation should work without JavaScript.
+
+6. DOCUMENTATION AND REPOSITORY HYGIENE
+README.md must include:
+- Purpose, team names, and implemented-versus-planned scope.
+- Prerequisites: compatible Visual Studio with ASP.NET/web-development tooling, or a supported editor plus the .NET 10 SDK; Git for collaboration.
+- Exact restore, build, test, and run commands from the repository root, matching the files actually created.
+- How to open the solution and run HoneyDoo.Web in Visual Studio.
+- How to find the actual local URL in the launch profile or console output.
+- Any local HTTPS certificate setup needed; do not disable certificate validation globally.
+- A plain-language explanation of the folders and where to edit the logo, colors, page copy, and team information.
+- A note that GitHub stores source code and does not itself run this ASP.NET Core application.
+
+Include a normal .NET .gitignore for build output, IDE-local files, user-specific settings, secrets, and future SQLite database/journal/WAL files. Never commit credentials or real household data. Preserve existing ignores and configuration.
+
+In docs/architecture.md, explain the proposed presentation/business-logic/data-access separation within one deployable web application. Clearly identify which layers are only reserved for future work.
+
+In docs/unit1-environment-checklist.md, use the instructor's four categories:
+1. Environment Configuration: actual CPU, RAM, and storage information.
+2. Operating Environment: actual operating system and an operational workspace.
+3. Development Tools: IDE, .NET SDK, and Git setup.
+4. Platform Readiness: initial project, repository, or completed configuration.
+
+Provide capture guidance and caption templates. Leave unknown machine details marked "To be recorded by the team." Never invent specifications or present Codex's execution environment as a teammate's computer. Explain that a running app and a populated database are not required for Unit 1.
+
+7. VALIDATION AND HANDOFF
+Add a small integration-test project using xUnit and Microsoft.AspNetCore.Mvc.Testing versions compatible with the chosen target. Test that:
+- GET / succeeds and contains HoneyDoo and the development-preview notice.
+- GET /About succeeds and includes the team section.
+- All four developer names and Fourward Solutions appear in the shared footer.
+
+Restore, build, and run tests when the environment permits. Start the real application and check its navigation, CSS, logo, favicon, and browser console when browser tooling is available. Check responsive layouts and keyboard navigation. Do not claim visual validation when no browser was available.
+
+If available, capture actual desktop and mobile screenshots of the running application. Label these as application previews, not evidence of the user's local hardware or installed tools. Do not fabricate screenshots.
+
+Finish by reporting:
+- What was created and the key file paths.
+- Exact commands to run the application locally.
+- Build/test outcomes and checks not performed.
+- Where the team can change branding and footer content.
+- A short list of deliberately deferred features.
+
+The acceptance target is a clean, runnable, branded HoneyDoo welcome screen and About page with accurate team credit, honest development status, basic smoke tests, and usable setup documentation. Stop there; do not build the full product.

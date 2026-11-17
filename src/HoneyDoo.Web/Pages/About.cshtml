@@ -1,0 +1,21 @@
+@page
+@model HoneyDoo.Web.Pages.AboutModel
+@{
+    ViewData["Title"] = "About | HoneyDoo";
+}
+
+<div class="about">
+    <h1>About HoneyDoo</h1>
+    <p class="intro">HoneyDoo is a household task-management project developed by @TeamInfo.Name for Purdue Global IT488, Group 3.</p>
+    <p>This development preview includes a welcome page, a fictional task example, and team information. Household accounts and task management are planned for future iterations.</p>
+    <p>The starter uses C# and ASP.NET Core Razor Pages. SQLite is planned for a future iteration, and the current pages run without a database.</p>
+    <section class="team-panel" id="team" aria-labelledby="team-title">
+        <h2 id="team-title">@TeamInfo.Name</h2>
+        <ul class="team-list">
+            @foreach (var member in TeamInfo.Members)
+            {
+                <li>@member</li>
+            }
+        </ul>
+    </section>
+</div>
