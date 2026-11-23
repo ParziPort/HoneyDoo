@@ -10,6 +10,6 @@ public static class TeamInfo
         "Cris Brown-Renteria",
         "Jacob Lasley",
         "Christopher Lawrence",
-        "Matt Newport"
+        "Matt Newport (Port)"
     });
 }
