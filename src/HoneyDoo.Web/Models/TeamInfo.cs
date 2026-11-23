@@ -9,7 +9,7 @@ public static class TeamInfo
     {
         "Cris Brown-Renteria - Preferred Name: Cris",
         "Jacob Lasley",
-        "Christopher Lawrence",
+        "Christopher Lawrence - Preferred name: Chris",
         "Matt Newport"
     });
 }
