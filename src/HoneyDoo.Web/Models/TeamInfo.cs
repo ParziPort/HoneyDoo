@@ -7,7 +7,7 @@ public static class TeamInfo
 
     public static IReadOnlyList<string> Members { get; } = Array.AsReadOnly(new[]
     {
-        "Cris Brown-Renteria",
+        "Cris Brown-Renteria - Preferred Name: Cris",
         "Jacob Lasley",
         "Christopher Lawrence",
         "Matt Newport"
